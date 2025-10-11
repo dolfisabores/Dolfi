@@ -114,6 +114,46 @@ body {
   background-color: #fff;
   color: #000;
 }
+
+/* Ajuste general de imágenes para que no se agranden demasiado */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Imagen del logo (centrado y tamaño controlado) */
+.hero img {
+  width: 160px;
+  max-width: 80%;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Si tenés productos o imágenes dentro de una galería */
+.productos img, 
+.producto img, 
+.card img {
+  width: 100%;
+  max-width: 300px;   /* no excede 300px en pantallas grandes */
+  border-radius: 10px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* En pantallas chicas, que ocupen todo el ancho disponible */
+@media (max-width: 768px) {
+  .productos img, 
+  .producto img, 
+  .card img {
+    max-width: 90%;
+  }
+}
+
+
+    
 </style>
 
     
@@ -220,6 +260,7 @@ body {
 
 </body>
 </html>
+
 
 
 
