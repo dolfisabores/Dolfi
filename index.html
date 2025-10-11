@@ -6,46 +6,48 @@
     <title>DOLFI Repostería Gourmet</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <style>
-body {
+/* RESET GENERAL */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+body {
   font-family: "Montserrat", sans-serif;
   background-color: #000;
   color: #fff;
   text-align: center;
+  line-height: 1.5;
 }
 
 /* HEADER */
 .site-header {
   background-color: #000;
-  color: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
   padding: 10px 20px;
 }
-
 .header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .logo {
   font-size: 1.5em;
   font-weight: bold;
+  color: #fff;
 }
-
 .nav {
   display: flex;
   gap: 20px;
 }
-
 .nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
+  transition: 0.3s;
 }
-
 .nav a:hover {
   color: #ff4da6;
 }
@@ -60,7 +62,110 @@ body {
   cursor: pointer;
 }
 
-/* Versión responsive */
+/* HERO */
+.hero {
+  padding: 60px 20px;
+}
+.hero img {
+  width: 180px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.8em;
+  margin-bottom: 15px;
+}
+.hero p {
+  color: #ccc;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* PRODUCTOS */
+#productos {
+  padding: 60px 20px;
+}
+#productos h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+.productos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+}
+.producto {
+  background-color: #111;
+  border-radius: 10px;
+  padding: 15px;
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+.producto img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.producto h3 {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+.producto p {
+  font-size: 0.95em;
+  color: #bbb;
+}
+.precio {
+  font-size: 1.4em;
+  color: #ff4da6;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* SECCIONES GENERALES */
+section {
+  padding: 40px 20px;
+}
+section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #111;
+  padding: 20px;
+  color: #bbb;
+  font-size: 0.9em;
+}
+
+/* 🔹 RESPONSIVE AJUSTES */
+@media (max-width: 1024px) {
+  .productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .nav {
     display: none;
@@ -73,88 +178,24 @@ body {
     text-align: center;
     padding: 15px 0;
   }
-
   .nav.active {
     display: flex;
   }
-
   .menu-btn {
     display: block;
   }
-}
-
-/* HERO Y DEMÁS CONTENIDO */
-.hero {
-  padding: 40px 20px;
-}
-
-.hero img {
-  width: 180px;
-  border-radius: 50%;
-}
-
-.hero h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5em;
-  margin: 15px 0;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border: 2px solid #fff;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: #fff;
-  color: #000;
-}
-
-/* Ajuste general de imágenes para que no se agranden demasiado */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
-
-/* Imagen del logo (centrado y tamaño controlado) */
-.hero img {
-  width: 160px;
-  max-width: 80%;
-  height: auto;
-  border-radius: 50%;
-}
-
-/* Si tenés productos o imágenes dentro de una galería */
-.productos img, 
-.producto img, 
-.card img {
-  width: 100%;
-  max-width: 300px;   /* no excede 300px en pantallas grandes */
-  border-radius: 10px;
-  height: auto;
-  margin: 0 auto;
-  display: block;
-}
-
-/* En pantallas chicas, que ocupen todo el ancho disponible */
-@media (max-width: 768px) {
-  .productos img, 
-  .producto img, 
-  .card img {
-    max-width: 90%;
+  .hero img {
+    width: 150px;
+  }
+  .hero h1 {
+    font-size: 2.2em;
+  }
+  .productos {
+    grid-template-columns: 1fr;
   }
 }
-
-
-    
 </style>
+
 
     
 
@@ -260,6 +301,7 @@ img {
 
 </body>
 </html>
+
 
 
 
