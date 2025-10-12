@@ -1,309 +1,289 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DOLFI Repostería Gourmet</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOLFI Repostería Gourmet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+        /* Reset básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0d0d0d;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
 
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #0d0d0d;
-      color: #f5f5f5;
-      line-height: 1.6;
-    }
+        a { text-decoration: none; color: inherit; }
 
-    a { text-decoration: none; color: inherit; }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0,0,0,0.7);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      background: rgba(0, 0, 0, 0.8);
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-    }
+        header nav a {
+            margin-left: 25px;
+            font-weight: 600;
+        }
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: #f5d67a;
-      font-weight: bold;
-    }
+        .hero {
+            background: url('ruta-de-tu-imagen-hero.jpg') center/cover no-repeat;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
 
-    nav {
-      display: flex;
-      gap: 20px;
-    }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
 
-    nav a {
-      font-weight: 600;
-      transition: color 0.3s;
-    }
+        .hero p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
 
-    nav a:hover {
-      color: #f5d67a;
-    }
+        .hero button {
+            padding: 12px 25px;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-    /* ===== MENU MÓVIL ===== */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
+        .hero button:hover {
+            background: #fff;
+            color: #000;
+        }
 
-    .menu-toggle span {
-      background: #fff;
-      height: 3px;
-      width: 25px;
-      margin: 4px 0;
-      transition: 0.3s;
-    }
+        .products {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 100px 20px 50px 20px;
+            flex-wrap: wrap;
+            background: #111;
+        }
 
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.95);
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        text-align: center;
-        padding: 20px 0;
-      }
+        .product-card {
+            background: #1a1a1a;
+            width: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
 
-      nav.active { display: flex; }
+        .product-card:hover { transform: translateY(-10px); }
 
-      .menu-toggle { display: flex; }
-    }
+        .product-card img {
+            width: 100%;
+            display: block;
+        }
 
-    /* ===== HERO ===== */
-    .hero {
-      background: url('IMAGENES/hero.jpg') center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      margin-top: 70px;
-    }
+        .product-card h3 {
+            margin: 15px 0 10px 0;
+            font-family: 'Playfair Display', serif;
+        }
 
-    .logo-hero {
-      width: 180px;
-      max-width: 90%;
-      border-radius: 50%;
-      margin-bottom: 25px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease;
-    }
+        .product-card p {
+            padding: 0 15px 15px 15px;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
 
-    .logo-hero:hover { transform: scale(1.05); }
+        .product-card button {
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
+        .product-card button:hover {
+            background: #fff;
+            color: #000;
+        }
 
-    .hero p {
-      font-size: 1.1rem;
-      color: #ddd;
-      margin-bottom: 20px;
-    }
+        footer {
+            background: #111;
+            padding: 40px 20px;
+            text-align: center;
+            color: #777;
+            margin-top: 50px;
+        }
 
-    .hero button {
-      padding: 12px 25px;
-      border: 2px solid #fff;
-      background: transparent;
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
 
-    .hero button:hover {
-      background: #fff;
-      color: #000;
-    }
+        .logo-hero {
+    width: 220px;             /* Tamaño ideal: ajusta entre 150–250px */
+    max-width: 90%;
+    border-radius: 50%;       /* Hace que se vea más suave y elegante */
+    margin-bottom: 30px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
+}
 
-    /* ===== PRODUCTOS ===== */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      padding: 80px 20px;
-      background: #111;
-      text-align: center;
-    }
+.logo-hero:hover {
+    transform: scale(1.05);
+}
 
-    .product-card {
-      background: #1a1a1a;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
 
-    .product-card:hover { transform: translateY(-10px); }
 
-    .product-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    .product-card h3 {
-      margin: 15px 0 10px 0;
-      font-family: 'Playfair Display', serif;
-    }
+.precio {
+  font-family: 'Playfair Display', serif; /* letra elegante gourmet */
+  font-weight: 700;
+  font-size: 1.5em !important;  /* más grande */
+  color: #f5d67a;               /* dorado suave */
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+  margin-top: 12px;
+  display: block;
+  text-align: center;
+}
 
-    .product-card p {
-      padding: 0 15px;
-      color: #ccc;
-    }
+/* Efecto suave al pasar el mouse */
+.precio:hover {
+  color: #b8860b;                /* dorado más oscuro */
+  transform: scale(1.05);
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+}
 
-    .precio {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.4em;
-      color: #f5d67a;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-      margin: 15px 0 20px;
-      display: block;
-    }
+.contacto {
+  background-color: #1b1b1b;
+  color: #f8f8f8;
+  text-align: center;
+  padding: 80px 20px;
+  font-family: 'Playfair Display', serif;
+}
 
-    .precio:hover {
-      color: #b8860b;
-      transform: scale(1.05);
-      text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
-    }
+.contacto h2 {
+  font-size: 2.5em;
+  color: #f5d67a;
+  margin-bottom: 20px;
+}
 
-    /* ===== CONTACTO ===== */
-    .contacto {
-      background-color: #1b1b1b;
-      color: #f8f8f8;
-      text-align: center;
-      padding: 80px 20px;
-      font-family: 'Playfair Display', serif;
-    }
+.info-contacto p {
+  margin: 8px 0;
+  font-size: 1.1em;
+}
 
-    .contacto h2 {
-      font-size: 2.3em;
-      color: #f5d67a;
-      margin-bottom: 20px;
-    }
+.redes-sociales {
+  margin-top: 25px;
+}
 
-    .info-contacto p {
-      margin: 8px 0;
-      font-size: 1.1em;
-    }
+.redes-sociales .red img {
+  width: 50px;
+  margin: 0 10px;
+  transition: transform 0.3s, filter 0.3s;
+}
 
-    .redes-sociales {
-      margin-top: 25px;
-    }
+.redes-sociales .red img:hover {
+  transform: scale(1.2);
+  filter: brightness(1.3);
+}
 
-    .redes-sociales img {
-      width: 45px;
-      margin: 0 8px;
-      transition: transform 0.3s, filter 0.3s;
-    }
 
-    .redes-sociales img:hover {
-      transform: scale(1.2);
-      filter: brightness(1.3);
-    }
+    </style>
 
-    footer {
-      background: #111;
-      padding: 40px 20px;
-      text-align: center;
-      color: #777;
-    }
-  </style>
+
+
 </head>
-
 <body>
 
-  <header>
+<header>
     <div class="logo">DOLFI</div>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
     <nav>
-      <a href="#home">Inicio</a>
-      <a href="#products">Productos</a>
-      <a href="#contacto">Contacto</a>
+        <a href="#home">Inicio</a>
+        <a href="#products">Productos</a>
+        <a href="#about">Sobre Nosotros</a>
+        <a href="#contacto">Contacto</a>
     </nav>
-  </header>
+</header>
 
-  <section class="hero" id="home">
-    <img src="IMAGENES/logo1.jpg" class="logo-hero" alt="Logo Dolfi">
-    <h1>Hacé tu vida más dulce</h1>
+
+<section class="hero" id="home">
+    <img src="IMAGENES\logo1.jpg" class="logo-hero">
+    <h1>Hace tu vida más dulce</h1>
     <p>Repostería artesanal elaborada con pasión y los mejores ingredientes.</p>
     <a href="#products"><button>Ver Productos</button></a>
-  </section>
+</section>
 
-  <section class="products" id="products">
+<section class="products" id="products">
+    <!-- Producto 1 -->
     <div class="product-card">
-      <img src="IMAGENES/dolfi2.jpg" alt="Alfajor de chocolate">
-      <h3>Alfajor de chocolate</h3>
-      <p>Delicioso alfajor de chocolate y dulce de leche.</p>
-      <span class="precio">$1800 C/U</span>
+        <img src="IMAGENES\dolfi2.jpg" alt="Producto 1">
+        <h3>Alfajor de chocolate</h3>
+        <p>Delicioso alfajor de chocolate y dulce de leche.</p>
+        <p class="precio">$1800 C/U</p>
+        <!--<button>Ver Más</button>-->
     </div>
-
+    <!-- Producto 2 -->
     <div class="product-card">
-      <img src="IMAGENES/dolfi6.jpg" alt="Budines">
-      <h3>Budines</h3>
-      <p>Exquisitos budines: chocolate, naranja, limón, vainilla, marmolados.</p>
-      <span class="precio">$6000 C/U</span>
+        <img src="IMAGENES\dolfi6.jpg" alt="Producto 2">
+        <h3>Budines</h3>
+        <p>Exquisitos budines : chocolate, naranja, limon, vainilla, marmolados.</p>
+        <p class="precio">$6000 C/U</p>
+        <!--<button>Ver Más</button>-->
     </div>
-
+    <!-- Producto 3 -->
     <div class="product-card">
-      <img src="IMAGENES/pastafrola4.jpg" alt="Pasta frola">
-      <h3>Pasta frola</h3>
-      <p>Riquísimas pastas frola caseras.</p>
-      <span class="precio">$7000 C/U</span>
+        <img src="IMAGENES\pastafrola4.jpg" alt="Producto 3">
+        <h3>Pasta Frola</h3>
+        <p>Riquísimas pasta frola caseras.</p>
+        <p class="precio">$7000 C/U</p>
+       <!--<button>Ver Más</button>-->
     </div>
-  </section>
+</section>
 
-  <section id="contacto" class="contacto">
+
+<section id="contacto" class="contacto">
     <h2>Contacto</h2>
     <p>Comunicate con nosotros para hacer tus pedidos:</p>
+    
     <div class="info-contacto">
       <p><strong>Teléfono:</strong> +54 9 3884290829</p>
       <p><strong>Email:</strong> dolfisabores@gmail.com</p>
     </div>
+  
     <div class="redes-sociales">
-      <a href="https://www.instagram.com/dolfisabores" target="_blank">
-        <img src="IMAGENES/insatadolfi.png" alt="Instagram">
+      <a href="https://www.instagram.com/dolfisabores" target="_blank" class="red">
+        <img src="IMAGENES\insatadolfi.png" alt="Instagram">
       </a>
-      <a href="https://www.facebook.com/dolfisabores" target="_blank">
-        <img src="IMAGENES/facedolfi.png" alt="Facebook">
+
+      <a href="https://www.facebook.com/dolfisabores" target="_blank" class="red">
+        <img src="IMAGENES\facedolfi.png" alt="Facebook">
       </a>
     </div>
   </section>
+  
 
-  <footer>
+<footer>
     <p>&copy; 2025 DOLFI Repostería Artesanal. San Salvador de Jujuy - 3884290829</p>
-  </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.querySelector('nav');
-      nav.classList.toggle('active');
-    }
-  </script>
+</footer>
 
 </body>
 </html>
+
