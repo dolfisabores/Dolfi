@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,10 +5,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOLFI Repostería Gourmet</title>
 
-    <!-- Fuente elegante -->
+    <!-- Fuentes elegantes -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ===== ESTILOS GENERALES ===== */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #111;
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #1b1b1b;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: #f5d67a;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+        }
+
+        nav a {
+            color: #f4f4f4;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #f5d67a;
+        }
+
+        /* ===== INICIO ===== */
+        .inicio {
+            text-align: center;
+            padding: 100px 20px;
+            background: url('IMAGENES/fondo.jpg') no-repeat center/cover;
+        }
+
+        .inicio h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            color: #f5d67a;
+        }
+
+        .inicio p {
+            font-size: 1.3em;
+            color: #eee;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #f5d67a;
+            color: #111;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+        }
+
+        /* ===== PRODUCTOS ===== */
+        .productos {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .productos h2 {
+            font-size: 2.5em;
+            color: #f5d67a;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #1b1b1b;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 15px 0 10px;
+            color: #fff;
+        }
+
+        .card p {
+            font-size: 0.95em;
+            color: #ddd;
+        }
+
+        .precio {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.8em;
+            font-family: 'Playfair Display', serif;
+            color: #f5d67a;
+            font-weight: 700;
+        }
+
+        /* ===== SOBRE NOSOTROS ===== */
+        .sobre-nosotros {
+            background-color: #141414;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .sobre-nosotros h2 {
+            color: #f5d67a;
+            font-size: 2.6em;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sobre-nosotros .historia {
+            max-width: 800px;
+            margin: auto;
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #e8e8e8;
+        }
+
+        .sobre-nosotros strong {
+            color: #f5d67a;
+        }
+
+        /* ===== CONTACTO ===== */
+        .contacto {
+            background-color: #1b1b1b;
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        .contacto h2 {
+            color: #f5d67a;
+            font-size: 2.5em;
+        }
+
+        .redes {
+            margin-top: 25px;
+        }
+
+        .redes a {
+            display: inline-block;
+            margin: 15px;
+            padding: 10px 20px;
+            border: 1px solid #f5d67a;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #f5d67a;
+            transition: 0.3s;
+        }
+
+        .redes a:hover {
+            background-color: #f5d67a;
+            color: #111;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: #0f0f0f;
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
 
@@ -40,25 +236,24 @@
     <section id="productos" class="productos">
         <h2>Nuestros Productos</h2>
         <div class="cards">
-
             <div class="card">
                 <img src="IMAGENES/alfajor.jpg" alt="Alfajor de chocolate">
                 <h3>Alfajor de chocolate</h3>
-                <p>Delicioso alfajor de chocolate y dulce de leche.</p>
+                <p>Delicioso alfajor artesanal con dulce de leche y baño de chocolate.</p>
                 <span class="precio">$1.800</span>
             </div>
 
             <div class="card">
                 <img src="IMAGENES/budin.jpg" alt="Budines gourmet">
                 <h3>Budines</h3>
-                <p>Exquisitos budines: chocolate, naranja, limón, vainilla, marmolados.</p>
+                <p>Budines caseros en variedades: chocolate, limón, naranja y marmolado.</p>
                 <span class="precio">$6.000</span>
             </div>
 
             <div class="card">
                 <img src="IMAGENES/pastafrola.jpg" alt="Pasta Frola">
                 <h3>Pasta Frola</h3>
-                <p>Riquísima pasta frola casera con mermelada artesanal.</p>
+                <p>Receta clásica con mermelada artesanal, masa suave y dorada.</p>
                 <span class="precio">$7.000</span>
             </div>
         </div>
@@ -90,18 +285,14 @@
         <p>© 2025 DOLFI Repostería Gourmet. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- ===== DESPLAZAMIENTO SUAVE ===== -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(enlace => {
-            enlace.addEventListener('click', function(e) {
-                e.preventDefault();
-                const destino = document.querySelector(this.getAttribute('href'));
-                destino.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
